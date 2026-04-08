@@ -46,10 +46,3 @@ html, body {
   height: 100%;
   border: 0;
 }
-
-@media (max-width: 768px) {
-  .section {
-    height: 100vh;
-  }
-
-}
