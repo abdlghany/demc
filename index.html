@@ -16,11 +16,11 @@
 
     <div class="section bg-1">
       <div class="video-wrapper" style="width: 30%; top: 70%; left: 50%;">
+        <div class="tap-overlay" onclick="playVideo(this)"></div>
         <iframe 
           src="https://www.youtube.com/embed/WqC2rXgWntQ"
           title="2026 DEMO REEL"
           frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen>
         </iframe>
       </div>
@@ -35,15 +35,7 @@
           allowfullscreen>
         </iframe>
       </div>
-      <!-- <img src="assets/yt.png" style="width: 2%; top:19%; left: 59%; display: fixed; position: absolute;">
-      <div style="width: 2%; position: absolute;  left: 59%; top: 20.2%; font-family: 'Roboto Condensed' ">
-        <p style="color: rgb(253, 167, 19); line-height: 22px;">
-          <span style="font-size: 1em; font-weight: 700; font-style: normal; color: rgb(253, 167, 19); 
-            font-kerning: normal; text-decoration-line: none; text-decoration-style: solid; text-decoration-thickness: auto;">
-            DAVIS SPLIT SCREEN
-          </span>
-        </p>
-      </div> -->
+
       <div class="video-wrapper" style="width: 32%; top: 67.8%; left: 42.3%;">
         <iframe 
           src="https://www.youtube.com/embed/bi2lf5UH0ls"
@@ -81,15 +73,6 @@
           </iframe>
         </div>
 
-        <!-- <img src="assets/yt.png" style="width: 35px; transform: translate(1315px, 346px);">
-        <div style="transform: translate(1355px, 302px);">
-        <p style="color: rgb(253, 167, 19); line-height: 22px; font-family: 'Roboto Condensed' ">
-          <span style="font-size: 1em; font-weight: 700; font-style: normal; color: rgb(253, 167, 19); 
-            font-kerning: normal; text-decoration-line: none; text-decoration-style: solid; text-decoration-thickness: auto;">
-            SUPPLY CADDY
-          </span>
-        </p>
-      </div> -->
         <div class="video-wrapper-vertical" style="height: 50%; top: 60%; left: 77%;">
           <iframe 
             src="https://www.youtube.com/embed/ziqrPwARG4c"
@@ -167,4 +150,14 @@
     <div class="section bg-6"></div>
   </div>
 </body>
+<script>
+  function playVideo(el) {
+    const iframe = el.parentElement.querySelector("iframe");
+    iframe.contentWindow.postMessage(
+      '{"event":"command","func":"playVideo","args":""}',
+      '*'
+    );
+    el.style.display = "none";
+  }
+</script>
 </html>
